@@ -233,14 +233,15 @@ class Solver:
 			for j in range(len(total_results[i])):
 				sheet1.write(j+1, i+1, total_results[i][j])
 
+		codesResults2 = []
 		total_results2 = []
 		for i in range(iterations):
 			codesResults = []
 			for c in codelist:
 				g = m.Game(code=c, colors = self.colors, pegs=self.pegs, silent=True)
 				win, game = self.solveF(g, [0, 0, 1, 1], hush=True)#Change this line to test
-				codesResults.append(game.rounds())
-			total_results.append(codesResults)
+				codesResults2.append(game.rounds())
+			total_results2.append(codesResults2)
 
 		sheet2 = workbook.add_worksheet()
 		for i in range(len(codelist)):
